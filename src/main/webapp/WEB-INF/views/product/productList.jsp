@@ -20,7 +20,7 @@
 		for(ProductDTO productDTO : ar){		
 	%>	
 	<h3><%= productDTO.getProductName()%></h3>
-	<h3><%= productDTO.getProductJumsu()%></h3>
+	<h3><%= productDTO.getProductScore()%></h3>
 	<%}%>  
 	
 	<hr>
@@ -37,7 +37,7 @@
 			<tr>
 			<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
 			<td><h3>${ pageScope.dto.productName}</h3></td>
-			<td><h3>${ dto.productJumsu}</h3></td>
+			<td><h3>${ dto.productScore}</h3></td>
 			</tr>
 			</c:forEach>
 	</tbody>

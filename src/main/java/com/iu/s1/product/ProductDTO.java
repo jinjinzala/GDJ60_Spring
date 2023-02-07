@@ -4,15 +4,9 @@ public class ProductDTO {
 	private Long productNum;
 	private String productName;
 	private String productDetail;
-	private Double productJumsu;
+	private Double productScore;
 	private int productAge;
 	
-	public int getProductAge() {
-		return productAge;
-	}
-	public void setProductAge(int productAge) {
-		this.productAge = productAge;
-	}
 	public Long getProductNum() {
 		return productNum;
 	}
@@ -31,12 +25,19 @@ public class ProductDTO {
 	public void setProductDetail(String productDetail) {
 		this.productDetail = productDetail;
 	}
-	public Double getProductJumsu() {
-		return productJumsu;
+	public Double getProductScore() {
+		return productScore;
 	}
-	public void setProductJumsu(Double productJumsu) {
-		this.productJumsu = productJumsu;
+	public void setProductScore(Double productscore) {
+		this.productScore = productScore;
 	}
+	public int getProductAge() {
+		return productAge;
+	}
+	public void setProductAge(int productAge) {
+		this.productAge = productAge;
+	}
+	
 	
 	
 

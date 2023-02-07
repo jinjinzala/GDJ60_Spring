@@ -13,7 +13,7 @@ public class DBConnection {
    public static Connection getConnection() throws Exception { 
 	   String user = "user01";
 	   String password = "user01";
-	   String url = "jdbc:oracle:thin:@192.168.1.31:1521:xe";
+	   String url = "jdbc:oracle:thin:@192.168.1.95:1521:xe";
 	   String driver = "oracle.jdbc.driver.OracleDriver";
 	   
 	   //2. Driver를 메모리에 로딩

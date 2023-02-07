@@ -12,7 +12,7 @@ public class MemberController {
 	@RequestMapping(value="memberjoin")
 	public String  getMemberjoin() {
 		System.out.println("MemberJoin");
-		//System.out.println(ar.size()>0);
+		
 		return"member/memberJoin";
 		
 	}

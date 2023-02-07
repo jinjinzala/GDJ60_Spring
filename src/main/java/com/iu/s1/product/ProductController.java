@@ -55,13 +55,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="productAdd",method = RequestMethod.GET)
-	public void productAdd() {
+	public void setproductAdd() {
 	}
 	
 	//productadd html에서 받아온 입력데이터 
 	@RequestMapping(value="productAdd",method = RequestMethod.POST)
-	public String productAdd(ProductDTO productDTO) throws Exception {
-	  int result = 	productService.setAddProduct(productDTO, null);
+	public String setproductAdd(ProductDTO productDTO) throws Exception {
+	  int result = 	productService.setProductAdd(productDTO, null);
 		System.out.println(result == 1 );
 		return "redirect:./list";
 	}
