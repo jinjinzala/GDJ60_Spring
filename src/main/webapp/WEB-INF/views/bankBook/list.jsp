@@ -10,7 +10,7 @@
 <body>
 <h1>bankBooklistpage</h1>
 
-<table> 
+<table border = "1"> 
 	<thead>
 		<tr>
 		 <th>상품명</th>
@@ -21,9 +21,15 @@
 	<tbody>
 	<c:forEach items="${list}" var="dto">
 	<tr>
-		<td> ${pageScope.dto.bookName} </td>
-		<td> ${pageScope.dto.bookRate} </td>
-		<td> ${pageScope.dto.bookSale}</td>
+		<td><a href="./detail?bookNumber=${dto.bookNumber}"> ${pageScope.dto.bookName}</a> </td>
+		<td><a> ${pageScope.dto.bookRate} </a></td>
+		<td>
+		<c:choose>
+		<c:when test="${dto.bookSale eq 1}"> 판매중 </c:when>
+		<c:otherwise>판매중단</c:otherwise>
+		</c:choose>
+		 </td>
+		<!-- pageScope는 생략가능  -->
 	</tr>
 	</c:forEach>
 
