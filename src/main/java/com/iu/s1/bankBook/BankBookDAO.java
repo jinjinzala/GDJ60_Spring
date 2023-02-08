@@ -16,18 +16,17 @@ public class BankBookDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s1.bankBook.BankBookDAO.";
 
-	//
+	
 	public Long getBookNumber() throws  Exception{
 		return sqlSession.selectOne(NAMESPACE+"getBookNumber");
 	}
-	
+
 	//id는 메서드명과 동일하게 넣기 
 	public List<BankBookDTO> getBankBookList() throws Exception {
 		
 		return sqlSession.selectList(NAMESPACE+"getBankBookList");
 	} 
 	
-
 	//1개는 selectOne으로 받기 검색하려면 변수가 필요하니깐 뒤에 추가로 매개변수 dto 선언 
 	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
 		
@@ -46,8 +45,8 @@ public class BankBookDAO {
 	}
 	
 	public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"setBankBookUpdate",bankBookDTO);
+		return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 	}
-	
+	//<!-- 업데이트 구분 만들기 _숙제 --> 
 	
 }

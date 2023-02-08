@@ -26,8 +26,12 @@
 	
 	  <insert id="setBankBookAdd" parameterType="BankBookDTO" > 
 		INSERT INTO BANKBOOK
-		VALUES (#{bookNumber},#{bookName},#{bookRate},#{bookSale},#{bookDetail})
+		VALUES (BANKNUM_SEQ.NEXTVAL,#{bookName},#{bookRate},#{bookSale},#{bookDetail})
 	  </insert>
+	    
+	    
+	   <!-- 업데이트 구분 만들기 _숙제 --> 
+	    
 	    
     </mapper>
     
