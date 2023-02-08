@@ -36,6 +36,7 @@ public class HomeController {
 		
 		return "home";
 	}
+	
 	@RequestMapping(value="/test/test.do")
 	public void test() {
 		System.out.println("/test/test.do test-------");

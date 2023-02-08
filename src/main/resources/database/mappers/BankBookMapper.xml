@@ -4,6 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.iu.s1.bankBook.BankBookDAO">
      
+    <select id="getBookNumber" resultType="Long">
+  	SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
+	</select>
      
     <select id ="getBankBookList" resultType="BankBookDTO" statementType="PREPARED"> 
      SELECT *
@@ -18,7 +21,7 @@
     </select>
 	    
 	  <delete id="setBankBookDelete" parameterType="Long">
-	  DELETE PRODUCT WHERE BOOKNUMBER = #{bookNumber}
+	  DELETE BANKBOOK WHERE BOOKNUMBER = #{bookNumber}
 	  </delete>
 	
 	  <insert id="setBankBookAdd" parameterType="BankBookDTO" > 

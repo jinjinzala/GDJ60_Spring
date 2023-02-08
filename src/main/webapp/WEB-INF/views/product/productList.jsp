@@ -29,7 +29,7 @@
 	
 	<thead>
 		 <tr>
-		  		<th>상품명</th><th>상품평점</th>
+		  	<th>상품명</th><th>상품평점</th>
 		 </tr>
 	</thead>
 	<tbody>

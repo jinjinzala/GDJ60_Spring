@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s1.member.MemberDTO;
-import com.iu.s1.product.ProductOptinDTO;
 
 @Repository
 public class BankBookDAO {
@@ -16,7 +15,11 @@ public class BankBookDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s1.bankBook.BankBookDAO.";
-	
+
+	//
+	public Long getBookNumber() throws  Exception{
+		return sqlSession.selectOne(NAMESPACE+"getBookNumber");
+	}
 	
 	//id는 메서드명과 동일하게 넣기 
 	public List<BankBookDTO> getBankBookList() throws Exception {
@@ -45,8 +48,6 @@ public class BankBookDAO {
 	public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"setBankBookUpdate",bankBookDTO);
 	}
-	
-	
 	
 	
 }
