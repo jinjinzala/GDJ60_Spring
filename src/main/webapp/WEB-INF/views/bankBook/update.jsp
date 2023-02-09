@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Update page</h1>
-	<from action="./update" method="post">
+	<form action="./update" method="post">
 			<input type="hidden" name="bookNumber" readonly="readonly" value="${dto.bookNumber}">
 			<input type="text" name="bookName" value="${dto.bookName}" placeholder="제품명입력"> 
 			<input type="text" name="bookRate" value="${dto.bookRate}"> 
@@ -17,7 +17,7 @@
 			<textarea rows="" cols=""  name="bookDetail">${dto.bookDetail}</textarea> 
 			<input type="submit" value="수정">
 			<button type="submit"> 수정 </button>
-	</from>
+	</form>
 	
 </body>
 </html>
