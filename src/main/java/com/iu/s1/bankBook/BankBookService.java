@@ -36,6 +36,6 @@ public class BankBookService {
 		return bankBookDAO.setBankBookDelete(bankBookDTO);
 	}
 	
-	//여기다가 만들기
+
 	
 }

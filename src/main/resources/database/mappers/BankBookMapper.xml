@@ -20,18 +20,27 @@
     WHERE BOOKNUMBER = #{bookNumber}
     </select>
 	    
-	  <delete id="setBankBookDelete" parameterType="Long">
+ 	<delete id="setBankBookDelete" parameterType="Long">
 	  DELETE BANKBOOK WHERE BOOKNUMBER = #{bookNumber}
-	  </delete>
+    </delete>
 	
-	  <insert id="setBankBookAdd" parameterType="BankBookDTO" > 
+     <insert id="setBankBookAdd" parameterType="BankBookDTO" > 
 		INSERT INTO BANKBOOK
 		VALUES (BANKNUM_SEQ.NEXTVAL,#{bookName},#{bookRate},#{bookSale},#{bookDetail})
-	  </insert>
-	    
-	    
-	   <!-- 업데이트 구분 만들기 _숙제 --> 
-	    
+     </insert>
+	
+	
+	 <!-- 업데이트 구분 만들기 _숙제 --> 
+	 <!--parameterType="BankBookDTO" 이고 엘리어스에 끄적여놔서 되는거임   --> 
+	 <!--컬럼명이랑 멤버변수랑 동일하게 만들기    --> 
+	 <!--DAO에서 호출    --> 
+	 <!-- #{bookNumber}파라미터로 받은 게터의 이름  --> 
+	 <update id="setBankBookUpdate" parameterType="BankBookDTO" >
+	  UPDATE BANKBOOK
+	  SET BOOKNAME = #{bookName}, BOOKRATE = #{bookRate}, BOOKSALE = #{bookSale}, BOOKDETAIL = #{bookDetail}
+	  WHERE BOOKNUMBER = #{bookNumber}
+	 </update>   
+	  
 	    
     </mapper>
     

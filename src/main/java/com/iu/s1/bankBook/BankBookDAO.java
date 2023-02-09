@@ -47,6 +47,6 @@ public class BankBookDAO {
 	public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 	}
-	//<!-- 업데이트 구분 만들기 _숙제 --> 
+	
 	
 }
