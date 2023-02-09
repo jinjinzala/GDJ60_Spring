@@ -1,0 +1,49 @@
+/* *{
+    color: red;
+} */
+
+
+
+#id1 {
+    color: blue;
+}
+
+h1 {
+    color: red;
+}
+
+.c1
+{ color: yellow;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.c2{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+.c2 > p {
+
+    color: white;
+    text-decoration: underline;
+}
+
+.c2 > div > p {
+
+    color: yellow;
+    text-decoration: overline;
+}
+
+.c3 {
+
+    color: brown;
+    text-decoration: overline;
+}
+
+

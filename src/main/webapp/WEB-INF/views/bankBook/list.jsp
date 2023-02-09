@@ -10,7 +10,13 @@
 <body>
 <h1>bankBooklistpage</h1>
 
-<table border = "1"> 
+<link rel="stylesheet" href="/resources/css/main.css">
+
+<div class="image">
+<img 요건 아이유에용" src="../../resources/images/one.jpg">
+</div>
+
+<table class="title" border = "1"> 
 	<thead>
 		<tr>
 		 <th>상품명</th>
@@ -21,7 +27,7 @@
 	<tbody>
 	<c:forEach items="${list}" var="dto">
 	<tr>
-		<td><a href="./detail?bookNumber=${dto.bookNumber}"> ${pageScope.dto.bookName}</a> </td>
+		<td><a class="c3" href="./detail?bookNumber=${dto.bookNumber}"> ${pageScope.dto.bookName}</a> </td>
 		<td><a> ${pageScope.dto.bookRate} </a></td>
 		<td>
 		<c:choose>

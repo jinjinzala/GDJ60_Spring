@@ -10,10 +10,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
 </head>
 <body>
- 	
+ 
+<link rel="stylesheet" href="/resources/css/main.css">	
+
+	
+	<div class="title">
 	<h1>product list page 입니당</h1>
     <%
         List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list"); 
@@ -24,8 +28,8 @@
 	<%}%>  
 	
 	<hr>
-	<div class="col-6">
-	<table class = "table table-hover">
+	</div>
+	<table class="title" >
 	
 	<thead>
 		 <tr>
@@ -42,9 +46,7 @@
 			</c:forEach>
 	</tbody>
 	</table>
-	<a class="btn btn-danger" href="./productAdd">상품등록</a>
-	
-	</div>
-	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<a href="./productAdd">상품등록</a>
+	 
 </body>
 </html>
