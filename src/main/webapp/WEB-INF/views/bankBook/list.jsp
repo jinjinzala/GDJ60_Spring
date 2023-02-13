@@ -12,13 +12,14 @@
 <body>
 <!-- 서버 내부 주소, 상대 경로  -->
   <c:import url="../template/header.jsp"></c:import>
-<h1 class="h11">bankBooklistpage</h1>
+   <div class="container-fluid my-5">
+   <div class="row mb-4 border-bottom border-dark">
+	<h1 class="col-md-7 mx-auto text-center pb-4">bankBooklistpage</h1>
+	</div>
 
-<div class="image">
-<img 요건 아이유에용" src="../../resources/images/one.jpg">
-</div>
+<div class="row col-md-7 mx-auto">
 
-<table class="tbl2"> 
+<table class="table table-hover"> 
 	<thead>
 		<tr>
 		 <th>상품명</th>
@@ -26,7 +27,7 @@
 		 <th>판매여부</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="table-group-divider">
 	<c:forEach items="${list}" var="dto">
 	<tr>
 		<td><a href="./detail?bookNumber=${dto.bookNumber}"> ${pageScope.dto.bookName}</a> </td>
@@ -43,6 +44,12 @@
 
 	</tbody>
 </table>
-	<a href="./add">상품등록</a>
-</body>
+
+   </div>
+   <div class="row col-md-7 mx-auto">
+      <a href="./add" class="btn btn-primary col-2">상품등록</a>
+   </div>
+</div>
+      <c:import url="../template/common_js.jsp"></c:import>
+      </body>
 </html>

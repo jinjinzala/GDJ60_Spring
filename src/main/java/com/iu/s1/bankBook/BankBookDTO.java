@@ -30,7 +30,9 @@ private Long bookNumber;
  public Long getBookSale() {
 	return bookSale;
 }
+ 
 public void setBookSale(Long bookSale) {
+	
 	this.bookSale = bookSale;
 }
 public String getBookDetail() {

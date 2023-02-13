@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>저축상품</title>
 </head>
 <body>
 	<h1>productAdd page</h1>

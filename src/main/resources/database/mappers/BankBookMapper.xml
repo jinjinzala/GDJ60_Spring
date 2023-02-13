@@ -35,6 +35,7 @@
 	 <!--컬럼명이랑 멤버변수랑 동일하게 만들기    --> 
 	 <!--DAO에서 호출    --> 
 	 <!-- #{bookNumber}파라미터로 받은 게터의 이름  --> 
+	 
 	 <update id="setBankBookUpdate" parameterType="BankBookDTO" >
 	  UPDATE BANKBOOK
 	  SET BOOKNAME = #{bookName}, BOOKRATE = #{bookRate}, BOOKSALE = #{bookSale}, BOOKDETAIL = #{bookDetail}
