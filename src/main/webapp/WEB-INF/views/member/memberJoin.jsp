@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="./template/common_css.jsp"></c:import>
 </head>
 <body>
+ <c:import url="../template/header.jsp"></c:import>
 <h1> memberJoin page </h1>
 <div class="col-6">
 	   <form action="./memberJoin" method="post">

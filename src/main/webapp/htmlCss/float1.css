@@ -1,0 +1,31 @@
+.warp{
+    width: 525px;
+    height: 100px;
+    border: black 1px solid;
+
+}
+.c1{ width: 100px;
+     height: 100px;
+    }
+
+.gb1{
+    
+    background-color: red;
+    float: left;
+}
+.gb2{
+    
+    background-color: yellow;
+    float: left;
+}
+.gb3{
+    
+    background-color: blue;
+    float: right;
+}
+
+.gb4{
+    
+    background-color: black;
+    clear: both;
+}

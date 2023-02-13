@@ -1,0 +1,45 @@
+.button{
+
+    background-color: aqua;
+    width: 200px;
+    font-size: 20px;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.button2{
+     background-color: brown;
+     width: 300px;
+     padding: 30px;
+     color: white;
+
+
+}
+.button3{
+    background-color: crimson;
+    width: 300px;
+    padding: 30px;
+    border-radius: 60px;
+    color: white;
+}
+
+.button4{
+    
+    width: 70px;
+    padding: 70px;
+    border-radius: 100px;
+    color: white;
+}
+
+.button4{
+    
+    width: 70px;
+    padding: 70px;
+    border-radius: 100px;
+    color: white;
+}
+
+.brown {
+    background-color: #ce6d39;
+    color: #ffeee4;
+}
