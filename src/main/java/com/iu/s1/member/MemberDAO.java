@@ -31,6 +31,13 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+"setAddMemberJoin",memberDTO);
 	}
 	
+	public int setMemberRoleAdd(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE +"setMemberRoleAdd",memberDTO);
+	}
 
-	
+//	 public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+//	      
+//	      return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO);
+//	   }
+
 }
