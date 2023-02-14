@@ -22,6 +22,12 @@
 	VALUES (#{id},#{pw},#{memberName},#{email},#{memberPhone})
   </insert>
   
+  <insert id="" parameterType="MemberDTO">
+  INSERT INTO MEMBER_ROLE (ID,ROLENUM)
+  VALUES (#{id},(SELECT ROLENUM FROM WHERE ROLENAME = 'MEMBER'))
+  </insert>
+  
+  
   
   
    </mapper>
