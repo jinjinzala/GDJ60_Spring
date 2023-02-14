@@ -17,24 +17,36 @@
 
 	   <form action="./memberJoin" method="post">
 		   member
+		   
 		    <div class="mb-3">
 		    아이디
 		    <input type="text" name="id" value="id"> 
-			
 			 </div>
+
 			 <div class="mb-3">
 			비번
 			<input type="text" name="pw" value="pw"> 
-			
 			 </div>
+			 
 			 <div class="mb-3">
 			이름 
-			<input type="text" name="membername" value="membername"> 
+			<input type="text" name="memberName" value="memberName"> 
 			 </div>
+			 
+			<div class="mb-3">
+			폰
+			<input type="text" name="memberPhone" value="memberPhone"> 
+			</div>
+			
+			<div class="mb-3">
+			이메일
+			<input type="text" name="email" value="email"> 
+			</div>
 			
 			 <div class="mb-3">
-			 <textarea name="memberJoin" rows="" cols =""> 여기다가 상세내용을 입력해주세요 </textarea>
+			 <textarea name="memberJoin" rows="" cols ="">  </textarea>
 			  </div>
+			  
 			<button type="submit"> 전송 button</button>
 </body>
 

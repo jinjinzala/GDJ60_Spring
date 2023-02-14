@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 	<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 	<div class="container-fluid">
 	<a href="/" class="nabar-toggler"></a>
@@ -15,9 +16,14 @@
 				</ul>	
 				
 				<ul class="navber-nav">
-				
+					<c:if test="${empty member}">
 					<li class="nav-item"><a class="nav-link" href="/member/memberLogin" style="font-size:11px;">LOGIN</a></li>
 					<li class="nav-item"><a class="nav-link" href="/member/memberJoin">JOIN</a></li>
+					</c:if>
+					<c:if test="${not empty member}" >
+					<li class="nav-item"><a class="nav-link" href="/member/memberPage" style="font-size:11px;">LOGIN</a></li>
+					<li class="nav-item"><a class="nav-link" href="/member/memberLogout">LOGOUT</a></li>
+					</c:if>
 					<li class="nav-item"><a class="nav-link" href="#">KO</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">EN</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">JP</a></li>

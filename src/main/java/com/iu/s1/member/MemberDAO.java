@@ -23,21 +23,23 @@ public class MemberDAO {
 	//--------------------------------------
 	
 	public List<MemberDTO> getMemberList()throws Exception{
-
 		return sqlSession.selectList(NAMESPACE+"getMemberList");
 	}
 	
-	public int setAddMemberJoin(MemberDTO memberDTO)throws Exception{
-		return sqlSession.insert(NAMESPACE+"setAddMemberJoin",memberDTO);
-	}
+//	public int setAddMemberJoin(MemberDTO memberDTO)throws Exception{
+//		return sqlSession.insert(NAMESPACE+"setAddMemberJoin",memberDTO);
+//	}
 	
 	public int setMemberRoleAdd(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE +"setMemberRoleAdd",memberDTO);
 	}
 
-//	 public int setMemberJoin(MemberDTO memberDTO) throws Exception {
-//	      
-//	      return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO);
-//	   }
+	 public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+	     return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO);
+	   }
+	 
+	 public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception {
+		 return sqlSession.selectOne(NAMESPACE+"getmemberLogin",memberDTO);
+	 }
 
 }
