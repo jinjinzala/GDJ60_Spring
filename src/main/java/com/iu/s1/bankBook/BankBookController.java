@@ -2,6 +2,7 @@ package com.iu.s1.bankBook;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.s1.product.ProductDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
@@ -60,10 +61,14 @@ public class BankBookController {
 	}
 	
 	@RequestMapping (value = "add", method = RequestMethod.POST )
-	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception {
+	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, ServletContext servletContext,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("Name: "+pic.getName());
+		System.out.println("origin"+pic.getOriginalFilename());
+		System.out.println("size"+pic.getSize());
+		System.out.println(session.getServletContext());
 		//int값은 나중에 사용할 예정~ 받아만두세여
-		int result = bankBookService.setBankBookAdd(bankBookDTO);
+		int result = bankBookService.setBankBookAdd(bankBookDTO,pic);
 		
 		//앞에 리다이렉트를 써주면 스프링이 알아서 인식해줌 
 		mv.setViewName("redirect:./list");

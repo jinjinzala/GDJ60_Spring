@@ -53,5 +53,8 @@ public class BankBookDAO {
 		return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 	}
 	
+	public int setBankBookImgAdd(BankBookImgDTO bankBookimgDTO)throws Exception {
+		return sqlSession.insert(NAMESPACE+ "setBankBookImgAdd");
+	}
 	
 }
