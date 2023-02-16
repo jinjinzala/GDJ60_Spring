@@ -1,16 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>MEMBER UPDATE PAGE</title>
+<c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
-<h1>up date page</h1>
-<form action="./update" method="post"></form>
+<c:import url="../template/header.jsp"></c:import>
+<div class="container-fluid">
+		<div class="row">
+			<h1>MemberUpdate Page</h1>
+		</div>
+		<div class="row">
+	<form action="./memberUpdate" method="post">
 
-
+		<div class="mb-3">
+			<label for="memberName" class="form-label fw-bold">이름</label> 
+			<input type="text" name="memberName" class="form-control" id="memberName" >
+		</div>
+		
+		<div class="mb-3">
+			<label for="memberPhone" class="form-label fw-bold">전화번호</label> 				
+			<input type="tel" name="memberPhone" class="form-control" id="memberPhone" >
+		</div>
+				
+		<div class="mb-3">
+			<label for="email" class="form-label fw-bold ">이메일</label> 
+			<input type="email" name="email" class="form-control" id="email" >
+		</div>
+				
+		<div class="mb-3">
+			  <button class="btn btn-outline-success fw-bold" type="submit">확인</button> 
+		</div>
+		
+	</form>		
+</div>
+</div>
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

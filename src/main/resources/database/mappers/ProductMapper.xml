@@ -12,9 +12,27 @@
   
   <select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
   	SELECT PRODUCTNUM,PRODUCTNAME,PRODUCTSCORE
-  	FROM PRODUCT 
-  	ORDER BY PRODUCTNUM DESC 
-  </select>
+  	FROM (
+  	SELECT ROWNUM R, B.* FROM
+  			( SELECT * FROM PRODUCT
+  			WHERE 
+  			<choose>
+  			<when test="kind == 'contents'">
+  			PRODUCTNUM
+  			</when>
+  			<otherwise>
+			PRODUCTNAME
+			</otherwise>
+  			</choose>
+  			LIKE 
+			'%'|| #{search} || '%'
+			ORDER BY PRODUCTNUM DESC )
+			 B 
+			)
+  			WHERE R BETWEEN #{startRow} AND  #{lastRow}
+   
+   </select>
+  		
   
   <select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
   	SELECT * FROM PRODUCT WHERE PRODUCTNUM = #{productNum}	 

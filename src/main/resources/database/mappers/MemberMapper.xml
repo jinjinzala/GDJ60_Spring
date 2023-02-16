@@ -5,22 +5,11 @@
     <mapper namespace="com.iu.s1.member.MemberDAO">
   <!--id는 사용하려는 DAO의 매소드명과 동일하게 작성하여야함 -->
   <!-- insert,delete,update 는 리턴값이 없어서 resultType을 쓰지앖음 -->
-  
-    <insert id="setMemberJoin" parameterType="MemberDTO">
- 	 INSERT INTO MEMBER
- 	 VALUES (#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email} )
- 	 
- <!-- paramete처리 = #{getter의 이름}-->
- 	</insert>
-   <select id="getMemberList" resultType="MemberDTO" statementType="PREPARED">
-  	SELECT ID , PW,MEMBERNAME,MEMBERPHONE,EMAIL
-  	FROM MEMBER
-  </select>
-  
-<!--<insert id="setAddProduct" parameterType="MemberDTO"> 
-	INSERT INTO MEMBER 
-	VALUES (#{id},#{pw},#{memberName},#{email},#{memberPhone})
-  </insert> -->
+ 
+   <insert id="memberJoin" parameterType="MemberDTO">
+  	INSERT INTO MEMBER 
+  	VALUES (#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email})
+  </insert>
   
   <insert id="setMemberRoleAdd" parameterType="MemberDTO">
   INSERT INTO MEMBER_ROLE (ID,ROLENUM)
@@ -28,8 +17,14 @@
   </insert>
   
   <select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-  SELECT* FROM MEMBERS WHERE ID=#{id} AND PW=#{pw}
+  SELECT * FROM MEMBER WHERE ID = #{id}
   </select>
+  
+   <update id="setMemberUpdate" parameterType="MemberDTO">
+  	UPDATE MEMBER
+  	SET MEMBERNAME = #{memberName}, MEMBERPHONE = #{memberPhone}, EMAIL = #{email}
+	WHERE ID = #{id} 
+  </update>  
   
  
    </mapper>

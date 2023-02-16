@@ -1,6 +1,7 @@
 <%@page import="com.iu.s1.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,23 +18,22 @@
 </div>
 
 <div class="row">
-<h1>Name : ${member.memberName}</h1>
-<h1>Phone : ${member.memberPhone}</h1>
-<h1>Email : ${member.email}</h1>
+<h1>Name : ${dto.memberName}</h1>
+<h1>Phone : ${dto.memberPhone}</h1>
+<h1>Email : ${dto.email}</h1>
 <a href="./memberUpdate" class="btn btn-info">정보수정</a>
 </div>
 </div>
-<h1>memberPage page </h1>
+
+<%-- <h1>memberPage page </h1>
 <h1>여기는 멤버 </h1>
 <% MemberDTO memberDTO = (MemberDTO)request.getAttribute("dto"); %>
 <h3> <%= memberDTO.getMemberName() %></h3>
 <h3> <%= memberDTO.getMemberPhone() %></h3>
 <h3> <%= memberDTO.getId() %></h3>
 <h3> <%= memberDTO.getPw() %></h3>
-<hr>
+<hr> --%>
 
-
-
-
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

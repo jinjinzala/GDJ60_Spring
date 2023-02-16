@@ -17,12 +17,10 @@
 
 	   <form action="./memberJoin" method="post">
 		   member
-		   
 		    <div class="mb-3">
 		    아이디
 		    <input type="text" name="id" value="id"> 
 			 </div>
-
 			 <div class="mb-3">
 			비번
 			<input type="text" name="pw" value="pw"> 

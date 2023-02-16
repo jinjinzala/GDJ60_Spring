@@ -10,43 +10,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<title>Home</title>
-<link rel="stylesheet" href="./resources/css/main.css">
-<link rel="stylesheet" href="./resources/css/reset.css">
+<c:import url="../template/common_css.jsp"></c:import>
+<link rel="stylesheet" href="../resources/css/table.css">
+<link rel="stylesheet" href="/resources/css/main.css">
+</head>
 
 <body>
-	<header>
-		<div class="header_wrap">
-			<div class="header_logo">
-			<a href="../"><img src="/resources/images/logo.png" alt=""></a></div>
-			<nav class="header_nav">
-				<ul>
-					<li><a href="#">공지사항</a></li>
-					<li><a href="./product/list">제품목록</a></li>
-					<li><a href="./bankBook/list">저축통장</a></li>
-					<li><a href="#">저축상품</a></li>
-				</ul>	
-			</nav>
-			<div class="header_sub">
-				<ul>
-					<li><a href="./member/memberLogin">LOGIN</a></li>
-					<li><a href="./member/memberJoin">JOIN</a></li>
-					<li><a href="#">KO</a></li>
-					<li><a href="#">EN</a></li>
-					<li><a href="#">JP</a></li>
-					<li><a href="#">CN</a></li>
-				</ul>
-			</div>
-			
-		</div>
-	   </header>
-	</head>
-
-<link rel="stylesheet" href="/resources/css/main.css">	
-
+<!-- 서버 내부 주소, 상대 경로  -->
+  <c:import url="../template/header.jsp"></c:import>
+	<div class="container-fluid my-5">
+	<div class="row mb-4 border-bottom border-dark">
+	<h1 class="col-md-7 mx-auto text-center pb-4"> Productlist page</h1>
+	</div>	
 	
-	<div class="title">
-	<h1>product list page 입니당</h1>
+<%-- 	<div class="title">
     <%
         List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list"); 
 		for(ProductDTO productDTO : ar){		
@@ -56,25 +33,32 @@
 	<%}%>  
 	
 	<hr>
-	</div>
-	<table class="title" >
+	</div> --%>
+	
+<div class="row col-md-7 mx-auto">
+	<table class="table table-hover"> 
 	
 	<thead>
 		 <tr>
-		  	<th>상품명</th><th>상품평점</th>
+		  	<th>상품명</th>
+		  	<th>상품평점</th>
 		 </tr>
 	</thead>
-	<tbody>
-			<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
-			<tr>
-			<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
-			<td><h3>${ pageScope.dto.productName}</h3></td>
-			<td><h3>${ dto.productScore}</h3></td>
-			</tr>
-			</c:forEach>
+	<tbody class="table-group-divider">
+	<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
+	<tr>
+			<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></td>
+			<td><a class="tbl2_td"> ${pageScope.dto.productName}</a></td>
+			<td class="tbl2_td">		
+			<td><a class="tbl2_td">${ dto.productScore}</a></td>
+	</tr>
+	</c:forEach>
 	</tbody>
 	</table>
-	<a href="./productAdd">상품등록</a>
-	 
+	<div class="row col-md-7 mx-auto">
+	<a href="./productAdd" class="btn btn-primary col-2">상품등록</a>
+	</div>
+</div>	 
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

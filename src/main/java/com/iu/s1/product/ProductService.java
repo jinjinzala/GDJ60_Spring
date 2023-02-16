@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s1.util.Pager;
+
 @Service
 public class ProductService {
 	//서비스는 dao에 의존적이다 
@@ -15,8 +17,14 @@ public class ProductService {
 	private ProductDAO productDAO = new ProductDAO();
 	
 		
-	public List<ProductDTO> getProductList() throws Exception {
-		return  productDAO.getProductList();
+	public List<ProductDTO> getProductList(Pager pager) throws Exception {
+		pager.makeRow();
+		
+		Long totalCount = productDAO.getProductCount(pager);
+		
+		pager.makeNum(totalCount);
+		
+		return  productDAO.getProductList(pager);
 	}
 		
 	

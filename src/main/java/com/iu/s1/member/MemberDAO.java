@@ -9,9 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.iu.s1.product.ProductDTO;
-import com.iu.s1.product.ProductOptinDTO;
-import com.iu.s1.util.DBConnection;
 
 @Repository
 public class MemberDAO {
@@ -22,24 +19,25 @@ public class MemberDAO {
 	
 	//--------------------------------------
 	
-	public List<MemberDTO> getMemberList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getMemberList");
-	}
-	
-//	public int setAddMemberJoin(MemberDTO memberDTO)throws Exception{
-//		return sqlSession.insert(NAMESPACE+"setAddMemberJoin",memberDTO);
+//	public List<MemberDTO> getMemberList()throws Exception{
+//		return sqlSession.selectList(NAMESPACE+"getMemberList");
 //	}
 	
-	public int setMemberRoleAdd(MemberDTO memberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE +"setMemberRoleAdd",memberDTO);
+	public int setMemberUpdate(MemberDTO memberDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
+	}
+	
+	public int memberJoin(MemberDTO memberDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
+		
+	}
+	public int setMemberRoleAdd(MemberDTO memberDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setMemberRoleAdd", memberDTO);
 	}
 
-	 public int setMemberJoin(MemberDTO memberDTO) throws Exception {
-	     return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO);
-	   }
 	 
-	 public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception {
-		 return sqlSession.selectOne(NAMESPACE+"getmemberLogin",memberDTO);
-	 }
+	 public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+		}
 
 }

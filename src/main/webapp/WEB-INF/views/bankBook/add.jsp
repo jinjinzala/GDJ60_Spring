@@ -30,6 +30,13 @@
 			<legend>상세정보</legend>
 			<textarea  rows="" cols=""  name="bookDetail"></textarea> 
 		</div>
+		
+		<div class="mb-3">
+			<legend>파일등록</legend>
+			<input type="file" name="pic" value="flie" id="files" > 
+		</div>
+		
+		
 				
 		<div>
 			<legend>판매여부</legend>
