@@ -17,13 +17,17 @@ public class BankBookDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s1.bankBook.BankBookDAO.";
 
+
 	
 	public Long getBankBookCount(Pager pager) throws Exception {
+
 		return sqlSession.selectOne(NAMESPACE+"getBankBookCount");
+
 	}
 	
 	public Long getBookNumber() throws  Exception{
 		return sqlSession.selectOne(NAMESPACE+"getBookNumber");
+
 	}
 
 	//id는 메서드명과 동일하게 넣기 
@@ -40,9 +44,7 @@ public class BankBookDAO {
 	
     //insert는 int 타입으로 
 	public int setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
-	
-		return sqlSession.insert(NAMESPACE+"setBankBookAdd",bankBookDTO);
-		
+		return sqlSession.insert(NAMESPACE+"setBankBookAdd",bankBookDTO);	
 	}
 	public int setBankBookUpdate(BankBookDTO bankBookDTO) throws Exception{
 		
@@ -53,8 +55,9 @@ public class BankBookDAO {
 		return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 	}
 	
-	public int setBankBookImgAdd(BankBookImgDTO bankBookimgDTO)throws Exception {
-		return sqlSession.insert(NAMESPACE+ "setBankBookImgAdd");
+	//IMG insert
+	public int setBankBookImgAdd(BankBookImgDTO bankbookImgDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setBankBookImgAdd", bankbookImgDTO);
 	}
 	
 }

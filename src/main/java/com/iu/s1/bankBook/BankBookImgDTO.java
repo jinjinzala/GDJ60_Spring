@@ -1,8 +1,12 @@
 package com.iu.s1.bankBook;
 
 public class BankBookImgDTO {
-
 	private Long fileNum;
+	private Long bookNumber;
+	private String fileName;
+	private String oriName;
+	
+	
 	public Long getFileNum() {
 		return fileNum;
 	}
@@ -27,7 +31,4 @@ public class BankBookImgDTO {
 	public void setOriName(String oriName) {
 		this.oriName = oriName;
 	}
-	private Long bookNumber;
-	private String fileName;
-	private String oriName;
 }

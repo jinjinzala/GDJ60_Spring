@@ -17,37 +17,42 @@
    <div class= "row mb-4 ">
    
    
-	<h1 class="text-center mb-2 border-bottom border-warning">은행 상품 등록
-	<div class = "mb-3"></div>
+	<h1 class="mb-2"> 상품 추가 등록
 	</h1>
 	</div>
 	<form class = "row g-3 ms-auto" action="./add" method="post" enctype="multipart/form-data">
-		<div class ="col-md-6">
-			<label for="bookName" class="form-label">상품명</label>
+		<div class ="col-12">
+			<label for="bookName" class="form-label">상품명 </label>
   			<input type="text" class="form-control" id="bookName" name="bookName">
  		</div>
- 		<div class="col-md-5">
+ 		<div class="col-12">
     		<label for="bookRate" class="form-label">이자율</label>
     		<input type="text" class="form-control" id="bookRate" name="bookRate">
   		</div>
   		<div class="col-12">
-    		<label for="bookDetail" class="form-label">상품 설명</label>
-    		<input type="text" class="form-control" id="bookDetail" name="bookDetail" placeholder="간단한 설명">
+    		<label for="bookDetail" class="form-label">상품디테일</label>
+    		<input type="text" class="form-control" id="bookDetail" name="bookDetail" placeholder="여기다가 입력해주세요">
   		</div>
 		<div class="col-12">
     		<label for="files" class="form-label">이미지 첨부</label>
     		<input type="file" class="form-control" id="files" name="pic">
   		</div>
-  		<div class="form-check form-switch ms-2 my-4">
- 			<input class="form-check-input" type="checkbox" role="switch" id="bookSale" name="bookSale" value="1" checked>
-  			<label class="form-check-label" for="bookSale" >판매여부</label>
+		
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="bookSale" id="bookSale" value="0">
+		  <label class="form-check-label" for="bookSale">
+		    판매안함
+		  </label>
 		</div>
-		
-		
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="bookSale" id="bookSale" value="1" checked>
+		  <label class="form-check-label" for="bookSale">
+		    판매함
+		  </label>
+		</div>
 
 	  <div class="col-12">
 	    <button type="submit" class="btn btn-primary">등록</button>
-	    <a class ="btn btn-primary" href="./list">리스트</a>
 	  </div>
 	</form>
    </div>

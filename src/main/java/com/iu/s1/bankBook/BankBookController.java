@@ -55,26 +55,26 @@ public class BankBookController {
 	
 	@RequestMapping (value = "add", method = RequestMethod.GET )
 	public ModelAndView setBankBookAdd(ModelAndView mv) throws Exception {
-		mv.setViewName("/bankBook/add");
+		mv.setViewName("bankBook/add");
 		return mv;
 		
 	}
 	
-	@RequestMapping (value = "add", method = RequestMethod.POST )
-	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, ServletContext servletContext,HttpSession session) throws Exception {
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public ModelAndView setBankBookAdd(BankBookDTO bankbookDTO, MultipartFile pic, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Name: "+pic.getName());
-		System.out.println("origin"+pic.getOriginalFilename());
-		System.out.println("size"+pic.getSize());
-		System.out.println(session.getServletContext());
-		//int값은 나중에 사용할 예정~ 받아만두세여
-		int result = bankBookService.setBankBookAdd(bankBookDTO,pic);
 		
+		System.out.println("Name : "+pic.getName());
+		System.out.println("Ori Name : "+pic.getOriginalFilename());
+		System.out.println("size : "+pic.getSize());
+		System.out.println(session.getServletContext());
+		
+		int result = bankBookService.setBankBookAdd(bankbookDTO, pic);
 		//앞에 리다이렉트를 써주면 스프링이 알아서 인식해줌 
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect: ./list");
 		return mv;
 	}
-
+	
 	//delete
 
 	@RequestMapping (value = "delete", method = RequestMethod.GET)
