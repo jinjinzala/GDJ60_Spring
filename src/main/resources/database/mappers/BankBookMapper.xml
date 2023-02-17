@@ -27,8 +27,7 @@
       LIKE '%' || #{search} || '%'
     </sql>
   
-    
-    
+  
     <!-- 전체 row의 갯수를 가져오는것 -->
      <select id="getBankBookCount"    parameterType="Pager" resultType="Long">
      SELECT COUNT(BOOKNUMBER)  FROM BANKBOOK
@@ -60,11 +59,34 @@
      ORDER BY BOOKNUMBER DESC
     </select> -->
     
-    <select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">
-    SELECT *
-    FROM BANKBOOK
-    WHERE BOOKNUMBER = #{bookNumber}
+    
+    <select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
+		SELECT B.*,BI.* FROM BANKBOOK B
+		INNER JOIN BANKBOOKIMG BI
+		ON (B.BOOKNUMBER  = BI.BOOKNUMBER)
+		WHERE B.BOOKNUMBER = #{bookNumber}
     </select>
+    
+    <!--type=""에는 최종리턴타입  -->
+    <resultMap type="BankBookDTO" id="bankBookDetailResult">
+     	<!--Primary Key  -->
+    	<id column="BOOKNUMBER" property="bookNumber" />
+    	<!-- 그외 나머지 -->
+    	<result column="BOOKNAME" property="bookName" />
+    	<result column="BOOKDETAIL" property="bookDetail" />
+    	<result column="BOOKRATE" property="bookRate" />
+    	<result column="BOOKSALE" property="bookSale" />
+    	
+    	<!-- 1:1 관계일 때 -->
+    	<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+    	<!-- id는 뱅크북이미지의 pk  -->
+    	<id  column="FILENUM"  property="fileNum" />
+    	<result  column="FILENAME" property="fileName"/>
+    	<result  column="ORINAME" property="oriName"/>
+    	<!-- 1:n 관계일 때  -->
+    	<!-- <collection property=""></collection> -->
+    	</association>
+    </resultMap>
 	    
  	<delete id="setBankBookDelete" parameterType="Long">
 	  DELETE BANKBOOK WHERE BOOKNUMBER = #{bookNumber}

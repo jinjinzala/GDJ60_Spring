@@ -47,5 +47,6 @@ public class FileManager {
 		//2. Spring API FileCopyUtlis 객체의 copy 메서드 사용
 		FileCopyUtils.copy(multipartFile.getBytes(), file);
 		return name;
+	
 	}
 }
