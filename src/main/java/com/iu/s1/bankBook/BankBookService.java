@@ -61,9 +61,7 @@ public class BankBookService {
 			//productDTO.setProductNum(productNum);
 			//int result = productDAO.setProductAdd(productDTO);
 			result = bankBookDAO.setBankBookImgAdd(bankBookimgDTO);	
-			
 		}
-		
 		return result; //bankBookDAO.setBankBookAdd(bankBookDTO);
 		//bankBookDTO.getBookNumber();
 	}
