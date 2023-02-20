@@ -171,7 +171,6 @@ public class Pager {
 	public Pager() {
 		this.perPage=10L;
 	}
-	
 	   //startRow, lastRow 계산 하는 메서드
 	public void makeRow() {
 	      this.startRow = (this.getPage()-1)*this.getPerPage()+1;
