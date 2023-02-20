@@ -13,32 +13,34 @@
 <div class="container-fluid" ></div>
 <div class="row col-md-6 mx-auto my-5">
 		<div class="form-check">
-		  <input class="form-check-input" type="checkbox" value="" id="CheckAll">
-		  <label class="form-check-label" for="CheckAll">
+		  <input class="form-check-input checks" type="checkbox" value="" id="checkAll">
+		  <label class="form-check-label" for="checkAll">
 		 전체동의
 		  </label>
 		</div>
 		
 		<div class="form-check">
-		  <input class="form-check-input" type="checkbox" value="" id="Check1" >
+		  <input class="form-check-input checks" type="checkbox" value="" id="Check1" >
 		  <label class="form-check-label" for="Check1">
 		   동의1
 		  </label>
 		</div>
 		
 		<div class="form-check">
-		  <input class="form-check-input" type="checkbox" value="" id="Check2" >
+		  <input class="form-check-input checks" type="checkbox" value="" id="Check2" >
 		  <label class="form-check-label" for="Check2">
 		   동의2
 		  </label>
 		</div>
 		
 		<div class="form-check">
-		  <input class="form-check-input" type="checkbox" value="" id="Check3" >
+		  <input class="form-check-input checks" type="checkbox" value="" id="Check3">
 		  <label class="form-check-label" for="Check3">
 		   동의3
 		  </label>
 		</div>
+		
+		<div> <button id= "agree" class="btn btn-primary">회원가입</button></div>
 </div>
 </body>
 
