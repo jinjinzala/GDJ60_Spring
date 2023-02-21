@@ -16,7 +16,8 @@
 	<!-- 전체 업로드하는 파일의 총합 -->
 	<property name="maxUploadSize" value="31457280"></property>
 	</bean>
-	
+	<!--가짜 서블릿 생성 -->
+<!-- 	<bean class= "org.springframework.mock.web.MockServletContext" id="ServletContext"></bean> -->
 
 		
 </beans>
