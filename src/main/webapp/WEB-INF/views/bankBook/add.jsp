@@ -33,11 +33,15 @@
     		<label for="bookDetail" class="form-label">상품디테일</label>
     		<input type="text" class="form-control" id="bookDetail" name="bookDetail" placeholder="여기다가 입력해주세요">
   		</div>
-		<div class="col-12">
+
+		<div id="fileList">
+		<!-- <div class="col-12">
     		<label for="files" class="form-label">이미지 첨부</label>
     		<input type="file" class="form-control" id="files" name="pic">
-  		</div>
-		
+  		</div> -->
+		<button type="button" id="add" >ADD</button>
+		</div>
+
 		<div class="form-check">
 		  <input class="form-check-input" type="radio" name="bookSale" id="bookSale" value="0">
 		  <label class="form-check-label" for="bookSale">
@@ -56,6 +60,8 @@
 	  </div>
 	</form>
    </div>
+   <script type="text/javascript" src="../../resources/js/filemanager.js"></script>
+   <script> setMax(3); setParam('f');</script>
    <c:import url="../template/common_js.jsp"></c:import>
    
 </body>

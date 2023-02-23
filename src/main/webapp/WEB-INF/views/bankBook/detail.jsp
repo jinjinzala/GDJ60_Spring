@@ -20,9 +20,7 @@
 	<c:if test="${not empty dto.bankBookImgDTO}">
 	<img src="../resources/upload/bankBook/${dto.bankBookImgDTO.fileName}">
 	</c:if>
-	
-	
-	
+
 </div>
 
 <a href ="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>

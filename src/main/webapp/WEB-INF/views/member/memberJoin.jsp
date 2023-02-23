@@ -1,76 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
+
 <style>
-.redRedult{
-	color: red;
-}
-
-.blueRedult{
-	color: blue;
-}
+	.redResult{
+		color: red;
+	}
+	.blueResult {
+		color: blue;
+	}
 </style>
-
-
-
 </head>
 <body>
- <c:import url="../template/header.jsp"></c:import>
- <div class="text-center">
-<h1> memberJoin page </h1>
+<c:import url="../template/header.jsp"></c:import>
+<div class="container-fluid my-5">
+<div class="row justify-content-center">
+	<h1 class="col-md-6 text-center fw-bold">MemberJoin Page</h1>
 </div>
 
-<div class="text-center">
-	   <form action="./memberJoin" method="post" id="frm">
-		   member
-		    <div class="mb-3">
-		    아이디
-		    <input type="text" name="id" value="id" id="id">  
-		    <div id="idResult">
-		    </div>
-			 </div>
+	<div class = "row justify-content-center">
+		<form class="col-md-6" action="./memberJoin" method="post" id="frm">
+		
 			 <div class="mb-3">
-			비번
-			<input type="text" name="pw" value="pw" id="pw"> 
-			<div id="pwResult"> </div>
-			</div>
-			 
-			 <div class="mb-3">
-				비번2
-			<input type="text" name="pw" value="pw" id="pw2"> 
-			<div id="pwResult2"> </div>
+			    <label for="id" class="form-label fw-bold">ID</label> 
+			    <input type="text" name="id" id="id" class="form-control" placeholder="아이디 입력">  
+			    <div id="idResult"></div>
 				</div>
-			 <div class="mb-3">
-				이름 
-			<input type="text" name="memberName" value="memberName" id="memberName"> 
-			 </div>
-			 
+				 
 			<div class="mb-3">
-			폰
-			<input type="text" name="memberPhone" value="memberPhone" id="memberPhone"> 
+				<label for="pw" class="form-label fw-bold">PW</label> 
+				<input type="password" name="pw" class="form-control" id="pw" placeholder="비밀번호 입력">
+				<div id="pwResult"></div>
+			</div>
+				 
+			<div class="mb-3">
+				<label for="pw" class="form-label fw-bold">PW 검증</label> 
+				<input type="password" name="pw" class="form-control" id="pwCheck" placeholder="비밀번호 확인">
+				<div id="pwCheckResult"></div>
 			</div>
 			
 			<div class="mb-3">
-			이메일
-			<input type="text" name="email" value="email" id="email"> 
+				<label for="memberName" class="form-label fw-bold">이름</label> 
+				<input type="text" name="memberName" class="form-control" id="memberName" placeholder="이름 입력">
 			</div>
 			
-			 <div class="mb-3">
-			 <textarea name="memberJoin" rows="" cols ="">  </textarea>
-			 </div>
-			  
-			 <button type="button" id="btn">전송click</button>
-			  
-			  <button type="button" id="btn" >버튼 텍스트</button>
-			<!-- <button type="submit"> 전송 button</button> -->
-			<script type="text/javascript" src="../../resources/js/memberJoin.js"></script>
-		</body>
+			<div class="mb-3">
+				<label for="memberPhone" class="form-label fw-bold">전화번호</label> 
+				<input type="tel" name="memberPhone" class="form-control" id="memberPhone" placeholder="010-OOOO-OOOO">
+			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label fw-bold ">이메일</label> 
+				<input type="email" name="email" class="form-control" id="email" placeholder="example@gmail.com">
+			</div>	 
+			
+			<div class="mb-3">
+					<button class="btn btn-outline-success fw-bold" id="btn" type="button">등록</button> 
+			</div>
+					
+	<!-- <div class="mb-3"> <textarea name="memberJoin" rows="" cols ="">  </textarea> </div> -->
+				  			
+		</form>
+		</div>
+</div>
 
-   <c:import url="../template/common_js.jsp"></c:import>
+<script type="text/javascript" src="../../resources/js/memberJoin.js"></script>
+<c:import url="../template/common_js.jsp"></c:import>
+</body>
 </html>
