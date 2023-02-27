@@ -11,13 +11,25 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 
+	
+	
+	//File을 hdd에서 삭제
+	public boolean fileDelete(String path,String fileName) throws Exception{
+		File file = new File(path, fileName);
+		
+		//리턴타입이 boolean 
+		return file.delete();
+		
+	}
+	
 	//파일을 hdd에 저장하는 역할을 하는 애
 	
 	public String fileSave(MultipartFile multipartFile ,String path) throws Exception {
-		//  1. 어디에 저장할 것인가
+		//  1. 어디에 저장할 것인가??
 		//  /resources/upload/bankBook/...
 		//  2. 저장하는 관리는 운영체제가 담당
 		File file = new File(path);
+		
 		
 		
 		// 폴더가 존재하지 않으면 폴더 생성 
@@ -46,6 +58,7 @@ public class FileManager {
 		
 		//2. Spring API FileCopyUtlis 객체의 copy 메서드 사용
 		FileCopyUtils.copy(multipartFile.getBytes(), file);
+		
 		return name;
 	
 	}

@@ -1,0 +1,58 @@
+package com.iu.s1.board.notice;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.iu.s1.board.BbsDAO;
+import com.iu.s1.board.BbsDTO;
+import com.iu.s1.board.BoardDTO;
+import com.iu.s1.board.BoardService;
+import com.iu.s1.util.Pager;
+
+@Service
+public class NoticeService implements BoardService {
+	
+	//값은 같지만 빈의 이름으로 찾음
+	@Autowired
+	private NoticeDAO noticeDAO;
+	
+	@Override
+	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
+		//로우번호계산하기
+		pager.makeRow();
+		pager.makeNum(noticeDAO.getTotalCount(pager));
+		
+		return noticeDAO.getBoardList(pager);
+	}
+
+	
+	@Override
+	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.setBoardAdd(bbsDTO);
+	}
+
+	@Override
+	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.getBoardDetail(boardDTO);
+	}
+
+
+
+
+}

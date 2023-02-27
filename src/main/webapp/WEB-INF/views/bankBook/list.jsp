@@ -86,7 +86,7 @@
 	  </div>
 
 </form>
-     </div>       </nav>
+     </div></nav>
 <div>
 </div>
    </div>
