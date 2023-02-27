@@ -2,6 +2,8 @@ package com.iu.s1.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s1.board.BbsDTO;
@@ -48,9 +51,9 @@ public class NoticeController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(NoticeDTO noticeDTO) throws Exception{
+	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files, HttpSession session)throws Exception{
 	ModelAndView mv = new ModelAndView();
-	int result = noticeService.setBoardAdd(noticeDTO);
+	int result = noticeService.setBoardAdd(noticeDTO, files, session);
 	String message = "등록시실패";
 	
 	if(result>0) {
@@ -63,6 +66,28 @@ public class NoticeController {
 	return mv;
 	
 	}
+	
+	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BbsDTO bbsDTO, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common/result");
+
+		int result = noticeService.setBoardDelete(bbsDTO, session);
+
+		String message="삭제 실패";
+
+		if(result>0) {
+			message="삭제 성공";
+		}
+
+		mv.addObject("result", message);
+		mv.addObject("url", "./list");
+
+
+		return mv;
+	}
+
 	
 	@GetMapping("detail")
 	public ModelAndView getBoardDetail(NoticeDTO noticeDTO) throws Exception {
