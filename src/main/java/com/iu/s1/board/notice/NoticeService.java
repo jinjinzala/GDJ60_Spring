@@ -97,5 +97,12 @@ public class NoticeService implements BoardService {
 		return result;
 	}
 
+//내용 수정해서 채워 넣기 
+		@Override
+		public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+			// TODO Auto-generated method stub
+			return noticeDAO.getBoardFileDetail(boardFileDTO);
+		}
+
 
 }

@@ -20,12 +20,11 @@
 		<h3>${dto.writer}</h3>
 		<p>${dto.contents}</p>
   	
-  	
   	<c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
-  	
-	 <a href="../resources/upload/${boardName}/${fileDTO.fileName}">${fileDTO.oriName}</a>
+  	<a href="./fileDown?fileNum=${fileDTO.fileNum}">${fileDTO.oriName}</a>
+	 <%-- <a href="../resources/upload/${boardName}/${fileDTO.fileName}">${fileDTO.oriName}</a> --%>
 	</c:forEach>
-   
+    
    <c:if test="${boardName ne 'notice'}">
    <a href="./reply?num=${dto.num}" class="btn btn-danger"> 답글 </a>
    </c:if>
