@@ -16,15 +16,39 @@
   VALUES (#{id},(SELECT ROLENUM FROM ROLE WHERE ROLENAME = 'MEMBER'))
   </insert>
   
-  <select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-  SELECT * FROM MEMBER WHERE ID = #{id}
-  </select>
+     <select id="getMemberLogin" parameterType="MemberDTO" resultMap="memberDetailResult">
+	 SELECT M.*,R.* FROM MEMBER M
+ 	  INNER JOIN MEMBER_ROLE MR
+  	 ON (M.ID = MR.ID)
+  	 INNER JOIN ROLE R
+  	 ON (R.ROLENUM = MR.ROLENUM)
+  		 WHERE MR.ID =  #{id}
+       </select>
+       
+       <resultMap type="MemberDTO" id="memberDetailResult">
+        
+       	<!--Primary Key  -->
+    	<id column="ID" property="id" />
+       	<result column="PW" property="pw" />
+    	<result column="MEMBERNAME" property="memberName" />
+    	<result column="EMAIL" property="email" />
+    	<result column="MEMBERPHONE" property="memberPhone" />
+       
+       <!-- 1:1 관계일 때 -->
+      <association property="roleDTO" javaType="RoleDTO">
+      <result  column="ROLENUM" property="roleNum"/>
+      <result  column="ROLENAME" property="roleName"/>
+      </association>
+      </resultMap>
+       
+	  
+	   <update id="setMemberUpdate" parameterType="MemberDTO">
+	  	UPDATE MEMBER
+	  	SET MEMBERNAME = #{memberName}, MEMBERPHONE = #{memberPhone}, EMAIL = #{email}
+		WHERE ID = #{id} 
+	  </update>  
   
-   <update id="setMemberUpdate" parameterType="MemberDTO">
-  	UPDATE MEMBER
-  	SET MEMBERNAME = #{memberName}, MEMBERPHONE = #{memberPhone}, EMAIL = #{email}
-	WHERE ID = #{id} 
-  </update>  
+  
   
  
    </mapper>

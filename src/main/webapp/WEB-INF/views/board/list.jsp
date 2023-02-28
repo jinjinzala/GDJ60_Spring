@@ -37,9 +37,10 @@
 							<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
 						</c:catch>
 							<a href="./detail?num=${dto.num}">${dto.title}</a></td>
-						<td>${dto.writer}</td>
-						<td>${dto.regDate}</td>
-						<td>${dto.hit}</td>
+							
+							<td>${dto.writer}</td>
+							<td>${dto.regDate}</td>
+							<td>${dto.hit}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -89,9 +90,26 @@
 	  
 	</form>
 	</div>
-	<div class="row">
-	<a href="./add" class="btn btn-primary">글작성</a>
-	</div>
+	<c:choose>
+	<c:when test="${boardName eq 'notice'}">
+	<c:if test="${member.roleDTO.roleName eq 'ADMIN'}">
+			<div class="row">
+			<a href="./add" class="btn btn-primary">글작성</a>
+			</div>
+	</c:if>
+	</c:when >
+	<c:when test="${boardName eq 'qna'}">
+	<c:if test="${not empty member}">
+			<div class="row">
+			<a href="./add" class="btn btn-primary">글작성</a>
+			</div>
+	</c:if>
+	
+	</c:when>
+	</c:choose>
+
+	
+
 </div>
 
 

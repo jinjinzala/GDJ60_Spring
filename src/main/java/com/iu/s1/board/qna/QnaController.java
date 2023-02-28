@@ -58,6 +58,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = qnaService.setBoardAdd(qnaDTO, files ,session);
+		
 		String message = "등록시실패";
 		
 		if(result>0) {

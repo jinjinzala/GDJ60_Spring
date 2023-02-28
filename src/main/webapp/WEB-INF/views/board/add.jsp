@@ -20,9 +20,9 @@
 	</h1>
 	</div>
 	<form class = "row g-3 ms-auto" action="./add" method="post" enctype="multipart/form-data" >
-		<div class ="col-12">
-			<label for="writer" class="form-label">작성자 </label>
-  			<input type="text" class="form-control" id="writer" name="writer">
+		<div class ="col-12" >
+			<label for="writer" class="form-label"  >작성자 </label>
+  			<input type="text" class="form-control" id="writer" name="writer" readonly value="${member.id}">
  		</div>
  		<div class="col-12">
     		<label for="title" class="form-label">제목</label>
