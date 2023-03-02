@@ -37,8 +37,18 @@
 							<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
 						</c:catch>
 							<a href="./detail?num=${dto.num}">${dto.title}</a></td>
+					    <td>
+						    <c:choose>
+							<c:when test="${boardName eq 'notice'}">
+									관리자
+							</c:when>
+								<c:otherwise>
+								${dto.writer}
+								</c:otherwise>
+							</c:choose>	
+						</td>
 							
-							<td>${dto.writer}</td>
+							
 							<td>${dto.regDate}</td>
 							<td>${dto.hit}</td>
 					</tr>
@@ -108,7 +118,6 @@
 	</c:when>
 	</c:choose>
 
-	
 
 </div>
 

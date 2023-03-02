@@ -29,12 +29,38 @@
  		<beans:property name="order" value="0"> </beans:property>
  	
  	</beans:bean>
- 	
+ <!-- <beans:bean class="com.iu.s1.interceptors.AdminCheckinterceptor" id="adminCheckinterceptor"></beans:bean>> -->
 	<interceptors>
 	<interceptor>
 	<mapping path="/qna/*"/>
+	<mapping path="/member/*"/>
+	<!-- exclude-mapping 제외한다는뜻 -->
 	<exclude-mapping path="/qna/list"/>
+	<exclude-mapping path="/member/memberLogin"/>
+	<exclude-mapping path="/member/memberJoin"/>
+	<exclude-mapping path="/member/memberAgree"/>
 	<beans:ref bean="memberCheckInterceptor"/>
+	</interceptor>
+	</interceptors>
+	
+	
+	<interceptors>
+	<interceptor>
+	<mapping path="/notice/*"/>
+	<!-- exclude-mapping 제외한다는뜻 -->
+	<exclude-mapping path="/notice/list"/>
+	<exclude-mapping path="/notice/detail"/>
+	<!--첫번째 방법<beans:ref bean="adminCheckinterceptor"/>  -->
+	<beans:bean class="com.iu.s1.interceptors.AdminCheckinterceptor"></beans:bean>
+	<!-- <beans:ref bean="adminCheckinterceptor"/> -->
+	</interceptor>
+	
+	<interceptor>
+	<mapping path="/qna/update"/>
+	<mapping path="/qna/delete"/>
+	<mapping path="/notice/update"/>
+	<mapping path="/notice/delete"/>
+	<beans:ref bean="ownerCheckInterceptor"/>
 	</interceptor>
 	</interceptors>
 	
