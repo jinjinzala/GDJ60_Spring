@@ -41,9 +41,6 @@ public class QnaController {
 	ModelAndView mv = new ModelAndView();
 	List<BbsDTO> ar = qnaService.getBoardList(pager);
 	
- //오류 만들어주기 
-	ar = null;
-	ar.size();
 	//System.out.println(ar.size());
 	mv.addObject("list",ar);
 	mv.setViewName("board/list");
@@ -153,16 +150,7 @@ public class QnaController {
 	}
 	
 	
-	//------------------------------------------------------
-	@ExceptionHandler(NullPointerException.class)
-	public ModelAndView fixException() {
-		ModelAndView mv = new ModelAndView();
-		
-		mv.addObject("message", "잘못된 접근입니다 <br>관리자에게 문의하세요");
-		mv.setViewName("common/error_500");
-		return mv;
-	}
-	
+
 	
 	}
 	
