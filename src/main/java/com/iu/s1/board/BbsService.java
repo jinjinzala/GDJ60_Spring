@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.iu.s1.bankBook.BankBookCommentDTO;
 import com.iu.s1.board.notice.NoticeDTO;
 import com.iu.s1.util.Pager;
 
@@ -19,6 +20,8 @@ public interface BbsService {
 	public int setBoardUpdate(BbsDTO bbsDTO)throws Exception;
 	//delete
 	public int setBoardDelete(BbsDTO bbsDTO , HttpSession session)throws Exception;
+    
+	public int setetBankBookreply(BankBookCommentDTO bankBookCommentDTO, HttpSession session);
 	
 	
 }

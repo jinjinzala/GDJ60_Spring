@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s1.board.BbsDAO;
 import com.iu.s1.board.BbsDTO;
@@ -45,5 +46,10 @@ public class BankBookCommentService implements BbsService{
 		return 0;
 	}
 
+
+	public ModelAndView setBankBookreply(BbsDTO bbsDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
 	
 }

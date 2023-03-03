@@ -10,6 +10,16 @@ public class MemberService {
 	private MemberDAO memberDAO;
 	
 	
+	public boolean getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		memberDAO.getMemberLogin(memberDTO);
+		
+		boolean check = true; //중복 아니면 
+		if(memberDTO != null){
+			check = false;
+		}	
+		return check;
+	}
+	
 	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		int result = memberDAO.memberJoin(memberDTO);
 		result = memberDAO.setMemberRoleAdd(memberDTO);

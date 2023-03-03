@@ -33,6 +33,8 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	
+	
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView getBoardList(Pager pager)throws Exception {
 	ModelAndView mv = new ModelAndView();
@@ -118,6 +120,18 @@ public class NoticeController {
 	mv.addObject("dto", boardDTO);
 	mv.setViewName("board/update");
 	return mv;
+	}
+	
+	@GetMapping("listTop")
+	public ModelAndView getBoaedListTop(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		pager.setPerPage(5L);
+		
+		List<BbsDTO> ar = noticeService.getBoardList(pager);
+		
+		mv.addObject("list",ar);
+		mv.setViewName("common/noticeResult");
+		return mv;
 	}
 	
 	

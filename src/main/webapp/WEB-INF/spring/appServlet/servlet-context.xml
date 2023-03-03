@@ -39,20 +39,21 @@
 	<exclude-mapping path="/member/memberLogin"/>
 	<exclude-mapping path="/member/memberJoin"/>
 	<exclude-mapping path="/member/memberAgree"/>
+	<exclude-mapping path="/member/memberIdCheck"/>
 	<beans:ref bean="memberCheckInterceptor"/>
 	</interceptor>
 	</interceptors>
 	
-	
-	<interceptors>
+	<!--interceptors 잘못된 접근경로에 들어왔을때 넘겨주는 기능   -->
+<!-- 	<interceptors>
 	<interceptor>
 	<mapping path="/notice/*"/>
-	<!-- exclude-mapping 제외한다는뜻 -->
+	exclude-mapping 제외한다는뜻
 	<exclude-mapping path="/notice/list"/>
 	<exclude-mapping path="/notice/detail"/>
-	<!--첫번째 방법<beans:ref bean="adminCheckinterceptor"/>  -->
+	첫번째 방법<beans:ref bean="adminCheckinterceptor"/> 
 	<beans:bean class="com.iu.s1.interceptors.AdminCheckinterceptor"></beans:bean>
-	<!-- <beans:ref bean="adminCheckinterceptor"/> -->
+	<beans:ref bean="adminCheckinterceptor"/>
 	</interceptor>
 	
 	<interceptor>
@@ -63,7 +64,7 @@
 	<beans:ref bean="ownerCheckInterceptor"/>
 	</interceptor>
 	</interceptors>
-	
+	 -->
 	<context:component-scan base-package="com.iu.s1" />
 	
 	
