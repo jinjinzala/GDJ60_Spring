@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.iu.s1.bankBook.BankBookCommentDTO;
 import com.iu.s1.board.BbsDAO;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BoardDTO;

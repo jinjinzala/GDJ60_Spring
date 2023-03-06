@@ -31,29 +31,10 @@ public class BankBookCommentController {
 		List<BbsDTO> ar = bankBookCommentService.getBoardList(pager);
 		
 		mv.addObject("list",ar);
-		mv.setViewName("board/list");
+		mv.setViewName("common/commentList");
 		return mv;
 	}
 	
-	//
-	
-	@PostMapping("reply")
-	public ModelAndView setBankBookreply(BankBookCommentDTO bankBookCommentDTO , HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		int result = bankBookCommentService.setetBankBookreply(bankBookCommentDTO,session);
-		
-		String message = "등록시실패";
-		
-		if(result>0) {
-			 message = "등록성공했용";
-		}
-		
-		mv.addObject("result", message);
-		mv.addObject("url", "./list");
-		mv.setViewName("common/result");
-		return mv;
-		
-	}
 	@PostMapping("add")
 	public ModelAndView setBoardAdd(BankBookCommentDTO bankBookCommentDTO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -67,4 +48,23 @@ public class BankBookCommentController {
 		return mv;
 	}
 	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = bankBookCommentService.setBoardDelete(bankBookCommentDTO, null);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = bankBookCommentService.setBoardUpdate(bankBookCommentDTO);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
 }

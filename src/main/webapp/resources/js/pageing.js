@@ -1,3 +1,4 @@
+
 const pl = document.getElementsByClassName("page-link");
 const searchForm = document.getElementById("searchForm");
 const page = document.getElementById("page");
@@ -17,5 +18,3 @@ let data='';
 function setData(d){
     data=d;
 }
-
-
