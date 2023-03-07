@@ -105,13 +105,15 @@ commentListResult.addEventListener("click",function(e){
         //console.log(updateButton.parentNode.);
         let num = updateButton.getAttribute("data-comment-num");
         let contents = document.getElementById("contents"+num) //td
+        console.log(contents)
         let contentsTextArea =  document.getElementById("contents")
+        console.log(contentsTextArea)
         contentsTextArea.value=contents.innerText;
         contentsConfirm.setAttribute("data-comment-num",num)
     }
     e.preventDefault();
 
-})
+});
 
 function updateContents(){
     console.log('update',"../bankBookComment/update");
@@ -131,28 +133,27 @@ function updateContents(){
 
 }
 
-contentsConfirm.addEventListener('click',function(){
 
-console.log("update post")
-    let updateContents = document.getElementById("contents").value
-    let num = contentsConfirm.getAttribute("data-comment-num")
-
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("POST","../bankBookComment/update") 
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("num="+num+"&contents="+updateContents);
-    xhttp.addEventListener("readystatechange",function(){
-        if(this.readyState==4&&this.stats==200){
-            let result = this.responseText.trim();
-            if(result > 0){
-                alert("수정성공");
-                closeModal.click();
-                getList();
-            }else{
-                alert("수정실패")
-            }
-        }
-
-})
-})
+    contentsConfirm.addEventListener("click", function(){
+        console.log("Update Post");
+        let updateContents = document.getElementById("contents").value;
+        let num = contentsConfirm.getAttribute("data-comment-num");
+    
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../bankBookComment/update");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("num="+num+"&contents="+updateContents);
+        xhttp.addEventListener("readystatechange", function(){
+            if(this.readyState==4&&this.status==200){
+                let result = this.responseText.trim();
+                if(result>0){
+                    alert('수정 성공');
+                    closeModal.click();
+                    getList(1);
+                }else {
+                    alert('삭제 실패');
+                }
+    
+            }        
+        })
+    })

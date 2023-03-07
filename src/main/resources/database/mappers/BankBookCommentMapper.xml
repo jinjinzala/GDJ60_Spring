@@ -47,7 +47,7 @@
   
   <update id="setBoardUpdate" parameterType="BbsDTO">
   
-  UPDATE BANKBOOKCOMMENT SET CONTENT=#{contents} WHERE NUM=#{num}
+  UPDATE BANKBOOKCOMMENT SET CONTENTS=#{contents} WHERE NUM=#{num}
   </update>
   
   

@@ -52,8 +52,7 @@
 
 <!-- update form modal -->
 
-  
-  <!-- Modal -->
+<!-- Modal -->
   <div class="modal fade" id="contentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
@@ -74,6 +73,9 @@
 	  </div>
 	</div>
   </div>
+```
+  
+  
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>	
