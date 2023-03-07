@@ -28,7 +28,8 @@
 		(
 			SELECT ROWNUM R, C.* FROM 
 				( 
-					SELECT * FROM BANKBOOKCOMMENT
+					SELECT 
+					* FROM BANKBOOKCOMMENT
 				  	<include refid="commentCondition"></include> 
 				  	ORDER BY NUM DESC
 			  	)C  
