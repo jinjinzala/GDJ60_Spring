@@ -86,6 +86,7 @@
    	WHERE REF = #{ref} AND STEP > #{step} 
    </update>
    
+   
    <insert id="setReplyAdd" parameterType="QnaDTO">
    	INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
   	VALUES(QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, #{ref}, #{step}, #{depth})
@@ -104,6 +105,15 @@
   	SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum}
   	</select>
   
+   <update id="setBoardUpdate" parameterType="BbsDTO">
+   UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+   </update>
+  
+  
+  <!--Long타입이니깐 fileNum 변수명 적어주기-->
+  <delete id="setBoardFileDelete" parameterType="Long">
+  DELETE QNAFILES WHERE FILENUM=#{fileNum}
+  </delete>
   
   	
 	

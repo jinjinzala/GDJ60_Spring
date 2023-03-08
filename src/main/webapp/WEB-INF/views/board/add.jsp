@@ -33,11 +33,11 @@
   		</div>
   		<div class="col-12">
     		<label for="contents" class="form-label">내용</label>
-    		<input type="text" class="form-control" id="contents" name="contents" placeholder="상세내용">
+    		<!-- <input type="text" class="form-control" id="contents" name="contents" placeholder="상세내용"> -->
+  		<textarea name="contents" class="form-control" id="contents" name="contents" placeholder="내용 입력" rows="7"></textarea>
   		</div>
 
 		<div id="fileList" class="my-5">
-				
 				<button type="button" class="btn btn-primary" id="fileAdd">ADD</button>
 			</div>
 
@@ -59,10 +59,13 @@
 	</form>
    </div>
    
-   <script src="../resources/js/filemanager.js"></script>
-   <script> setMax(5); setParam('files');
-   $("#contents").summernote();</script>
+   
    <c:import url="../template/common_js.jsp"></c:import>
+   <script src="../resources/js/filemanager.js">
+   </script>
+   <script> setMax(5); setParam('addfiles');
+   $("#contents").summernote();
+   </script>
    
 </body>
 </html>

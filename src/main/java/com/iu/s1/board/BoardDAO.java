@@ -17,12 +17,15 @@ public interface BoardDAO extends BbsDAO{
 	//update 
 	
 	//delete 
+	public int setBoardFileDelete(Long fileNum) throws Exception;
 	
 	//BoardFileList
 	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception;
 	
 	//BoardFileDetail
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception;
+	
+	
 	
 	
 }

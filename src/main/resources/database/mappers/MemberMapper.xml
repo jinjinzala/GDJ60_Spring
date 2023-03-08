@@ -40,13 +40,12 @@
       <result  column="ROLENAME" property="roleName"/>
       </association>
       </resultMap>
-       
-	  
+      
 	   <update id="setMemberUpdate" parameterType="MemberDTO">
 	  	UPDATE MEMBER
 	  	SET MEMBERNAME = #{memberName}, MEMBERPHONE = #{memberPhone}, EMAIL = #{email}
 		WHERE ID = #{id} 
-	  </update>  
+	   </update>  
   
   
   
