@@ -40,7 +40,7 @@ public class BankBookCommentController {
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		//bankBookCommentDTO.setWriter(memberDTO.getId());
-		bankBookCommentDTO.setWriter("ADMIN");
+		bankBookCommentDTO.setWriter(memberDTO.getId());
 		int result = bankBookCommentService.setBoardAdd(bankBookCommentDTO, null, null);
 		mv.addObject("result",result);
 		mv.setViewName("common/ajaxResult");
