@@ -22,27 +22,36 @@ function setMax(m){
     max=m;
 }
 
+
 $(".deleteCheck").click(function(){
-if($(this).prop('checked')){
-   let result =  confirm('파일이 영구 삭제 됩니다')
-   if(result){
-    count--;
-   }else{
-    $(this).prop("checked",false)
-   }
+    let result=confirm('파일이 영구 삭제 됩니다');
+    let ch = $(this);
+    if(result){
+        let fileNum = $(this).val();
+        $.ajax({
+            type:'POST',
+            url:'./boardFileDelete',
+            data:{
+                fileNum:fileNum
+            },
+            success:function(response){
+                if(response.trim() > 0){
+                    alert("삭제 되었습니다");
+                    //this : ajax객체 자기 자신
+                    console.log(ch)
+                    ch.parent().parent().remove();
+                    count--;
+                }else {
+                    alert("삭제 실패<br> 관리자에게 문의 하세요");
+                }
+            },
+            error:function(){
 
-
-}else{
-    if(count==5){
-        console.log("idx "+idx)
-        $("#f"+(idx-1)).remove();
-        count--
-    }
-
-    count++
-}
+            }
+        })
+        $(this).prop('checked', false);
+  }
 })
-
 
 $("#fileList").on("click",".dels",function(e){
     // let id = $(this).attr("data-dels-id");

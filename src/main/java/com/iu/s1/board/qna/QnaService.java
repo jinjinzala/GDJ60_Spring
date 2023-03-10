@@ -173,7 +173,14 @@ public int setBoardUpdate(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSes
 	return result;
 	
 }
+@Override
+public int setBoardFileDelete(Long fileNum)throws Exception{
+	//HDD에 파일 삭제
+	return qnaDAO.setBoardFileDelete(fileNum);
+}
 
-	
+
+
+
 
 }

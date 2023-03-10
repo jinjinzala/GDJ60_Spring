@@ -20,13 +20,20 @@
   <div class="mb-3">
     
   <input type="text" id="id" class="form-control"  name="id" >
-  <label for="id" class="form-label">ID</label>
+  <label for="id" class="form-label" value="${cookie.rememberId.value}">ID</label>
   </div>
   <div class="mb-3">
   
     <input type="text" id="pw" class="form-control"  name="pw">
       <label for="pw" class="form-label">PW</label>
   </div>
+   <!-- Checkbox -->
+     <div class="form-check">
+    <input class="form-check-input" name="remember" type="checkbox" value="remember" id="form1Example3" checked="">
+    <label class="form-check-label" for="form1Example3"> Remember me </label>
+   </div>
+   </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </section>

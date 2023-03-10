@@ -1,5 +1,6 @@
 package com.iu.s1.board.qna;
 
+import java.net.http.HttpHeaders;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -45,7 +47,19 @@ public class QnaController {
 	mv.addObject("list",ar);
 	mv.setViewName("board/list");
 		
-	return mv;			
+	
+	RestTemplate restTemplate = new RestTemplate();
+	
+	//url , 
+	String result = restTemplate.getForObject("https://dummyjson.com/products/1", String.class);
+	System.out.println(result);
+	
+	//httpheader
+	HttpHeaders headers =new org.springframework.http.HttpHeaders();
+	headers.add("header명","header"값);
+	headers.set헤데명("값");
+	return mv;	
+	
 	}
 	
 	@GetMapping("add")
@@ -167,7 +181,15 @@ public class QnaController {
 	return mv;
 	}
 	
-	
+
+	@PostMapping("boardFileDelete")
+	public ModelAndView setBoardFileDelete(Long fileNum)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setBoardFileDelete(fileNum);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
 
 	
 	}
